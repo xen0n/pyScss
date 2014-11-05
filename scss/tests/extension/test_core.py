@@ -382,6 +382,11 @@ def test_index():
     assert calc('index(1px solid red, solid)') == calc('2')
     assert calc('index(1px solid red, dashed)') == calc('false')
 
+    # 1-element "lists" should work too
+    # taken from Neat as its omega() mixin is processed
+    assert calc('index(3n, table)') == calc('false')
+    assert calc('index(table, table)') == calc('1')
+
 
 def test_list_separator():
     # Examples from the Ruby docs
