@@ -521,7 +521,8 @@ class Number(Value):
             raise ValueError("Index must be an integer: {0!r}".format(ret))
 
         if ret == 0:
-            raise ValueError("Index cannot be zero")
+            #raise ValueError("Index cannot be zero")
+            pass
 
         if check_bounds and not circular and abs(ret) > length:
             raise ValueError("Index {0!r} out of bounds for length {1}".format(ret, length))
