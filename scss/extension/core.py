@@ -736,6 +736,10 @@ def append(lst, val, separator=None):
 
 @ns.declare
 def index(lst, val):
+    if not isinstance(lst, List):
+        # lst is actually not a list, treat it as one with length 1
+        return Number(1) if lst == val else Boolean(False)
+
     for i in xrange(len(lst)):
         if lst.value[i] == val:
             return Number(i + 1)
